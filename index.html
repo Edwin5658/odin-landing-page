@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/index_styles.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Odin Landing Page</title>
 </head>
 <body>
@@ -23,8 +23,9 @@
             <div class="introduction-text">
                 <h2>Kanye West</h2>
                 <h3>We miss the old kanye.</h3>
-                <button>I miss the old kanye</button>
+                <button id="playmusic">I miss the old kanye</button>
             </div>    
+            <audio id="bgm" src="./Audio.mp3"></audio>
             <div class="introduction-img">
                 <img src="./images/old kanye.jpg">
             </div>
@@ -42,7 +43,7 @@
                 </div>
                 <div class="second-info">
                     <iframe class="playlist" src="https://open.spotify.com/embed/album/5ll74bqtkcXlKE7wwkMq4g?utm_source=generator&theme=0" width="25%" height="400" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    <p id="p1">Rich orchestration, soul sampling, conscious hip hop.</p>
+                    <p id="p1">Rich orchestration, soul sampling rap album.</p>
                     <p id="p2">"Why you call it Late Registration, Ye?"
                         "Cause we takin' these motherfuckers back to school."</p>
                 </div>
@@ -54,18 +55,18 @@
             </div>
         </div>
         <div class="third-container">
-            <div class="text">
-                <p id="p1">"But I'm a champion, so I turned tragedy to triumph. Make music that's fire, spit my soul through the wire."</p>
-                <p id="p2">-Kanye West</p>
-            </div>
+            <p id="p1">"But I'm a champion, so I turned tragedy to triumph. Make music that's fire, spit my soul through the wire."</p>
+            <p id="p2">- Kanye West</p>
         </div>
         <div class="fourth-container">
-            <div class="text">
-                <p>Discover more Kanye songs</p>
-                <p>Click Look More to discover Kanye West's discrography.</p>
-            </div>
-            <div class="button">
-                <button>Look more</button>
+            <div class="lookmore">
+                <div class="text">
+                    <p>Discover more Kanye songs.</p>
+                    <p>Click Look More to discover Kanye West's discrography.</p>
+                </div>
+                <div class="button">
+                    <button>Look more</button>
+                </div>
             </div>
         </div>
     </main>
@@ -73,5 +74,22 @@
     <footer>
         <p>Copyright © The Odin Project 2021</p>
     </footer>
+
+    <script>
+        document.getElementById('playmusic').addEventListener('click', function() {
+            var music = document.getElementById('bgm');
+            if (music.paused) {
+                music.play();
+                this.textContent = 'Pause Music';
+            } else {
+                music.pause();
+                this.textContent = 'Continue';
+            }
+        });
+        document.getElementById('bgm').addEventListener('ended', function() {
+            var button = document.getElementById('playmusic');
+            button.textContent = 'I miss the old kanye';
+        });
+    </script>
 </body>
 </html>
